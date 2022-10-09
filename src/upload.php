@@ -24,7 +24,8 @@ if (isset($_POST['submit'])) {
     $accType = ["png", "jpeg", "jpg", "pdf"];
 
     // Membuat variabel untuk menampung nama file yang sama yang akan diupload dan direktori tujuan
-    $simpan = "../uploads/${fileName}";
+    // $simpan = "../uploads/${fileName}";
+    $simpan = "../uploads/{$fileName}";
     if (!empty($fileName)) {
         // Size file dihitung dari bit nya (5 MB ==> 5000*1024 = 5.002.000)
         if ($size <= 7000000) {
@@ -65,11 +66,10 @@ if (isset($_POST['submit'])) {
                     <!-- <input type="text" name="nama" placeholder="Nama"> 
                             <input type="number" name="umur" placeholder="Umur"> -->
                     <!-- input name nya "doc" untuk mengirim nilai ke PHP nanti nya -->
-                    <div class="text-green-400">
                         <?php
-                            echo "<h1>$ok</h1>"
+                            $cond = $ok;
+                            echo "<div class='text-green-400'>{$cond}<div>";
                         ?>
-                    </div>
                     <div class="items-center p-2">
                         <label class="block">
                             <input type="file" name="doc" class="text-slate-200">
